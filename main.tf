@@ -32,6 +32,7 @@ resource "aws_observabilityadmin_centralization_rule_for_organization" "observab
                 for_each = destination_logs_configuration.value.logs_encryption_configuration != null ? destination_logs_configuration.value.logs_encryption_configuration : []
                 content {
                   encryption_conflict_resolution_strategy = logs_encryption_configuration.value.encryption_conflict_resolution_strategy
+                  encryption_scope                        = logs_encryption_configuration.value.encryption_scope
                   encryption_strategy                     = logs_encryption_configuration.value.encryption_strategy
                   kms_key_arn                             = logs_encryption_configuration.value.kms_key_arn
                 }

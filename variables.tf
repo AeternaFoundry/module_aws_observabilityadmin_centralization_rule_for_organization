@@ -17,6 +17,7 @@ Optional:
                     - log_group_name_pattern (required)
                 - logs_encryption_configuration (optional, block):
                     - encryption_conflict_resolution_strategy (optional)
+                    - encryption_scope (optional)
                     - encryption_strategy (required)
                     - kms_key_arn (optional)
             - destination_metrics_configuration (optional, block):
@@ -51,6 +52,7 @@ EOT
           })))
           logs_encryption_configuration = optional(list(object({
             encryption_conflict_resolution_strategy = optional(string)
+            encryption_scope                        = optional(string)
             encryption_strategy                     = string
             kms_key_arn                             = optional(string)
           })))
