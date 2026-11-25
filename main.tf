@@ -37,6 +37,13 @@ resource "aws_observabilityadmin_centralization_rule_for_organization" "observab
                   kms_key_arn                             = logs_encryption_configuration.value.kms_key_arn
                 }
               }
+              dynamic "tag_propagation_configuration" {
+                for_each = destination_logs_configuration.value.tag_propagation_configuration != null ? destination_logs_configuration.value.tag_propagation_configuration : []
+                content {
+                  destination_role_arn             = tag_propagation_configuration.value.destination_role_arn
+                  tag_conflict_resolution_strategy = tag_propagation_configuration.value.tag_conflict_resolution_strategy
+                }
+              }
             }
           }
           dynamic "destination_metrics_configuration" {

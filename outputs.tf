@@ -14,6 +14,14 @@ output "observabilityadmin_centralization_rule_for_organizations_rule_name" {
   description = "Map of rule_name values across all observabilityadmin_centralization_rule_for_organizations, keyed the same as var.observabilityadmin_centralization_rule_for_organizations"
   value       = { for k, v in aws_observabilityadmin_centralization_rule_for_organization.observabilityadmin_centralization_rule_for_organizations : k => v.rule_name if v.rule_name != null && length(v.rule_name) > 0 }
 }
+output "observabilityadmin_centralization_rule_for_organizations_tag_propagation_failure_reason" {
+  description = "Map of tag_propagation_failure_reason values across all observabilityadmin_centralization_rule_for_organizations, keyed the same as var.observabilityadmin_centralization_rule_for_organizations"
+  value       = { for k, v in aws_observabilityadmin_centralization_rule_for_organization.observabilityadmin_centralization_rule_for_organizations : k => v.tag_propagation_failure_reason if v.tag_propagation_failure_reason != null && length(v.tag_propagation_failure_reason) > 0 }
+}
+output "observabilityadmin_centralization_rule_for_organizations_tag_propagation_status" {
+  description = "Map of tag_propagation_status values across all observabilityadmin_centralization_rule_for_organizations, keyed the same as var.observabilityadmin_centralization_rule_for_organizations"
+  value       = { for k, v in aws_observabilityadmin_centralization_rule_for_organization.observabilityadmin_centralization_rule_for_organizations : k => v.tag_propagation_status if v.tag_propagation_status != null && length(v.tag_propagation_status) > 0 }
+}
 output "observabilityadmin_centralization_rule_for_organizations_tags" {
   description = "Map of tags values across all observabilityadmin_centralization_rule_for_organizations, keyed the same as var.observabilityadmin_centralization_rule_for_organizations"
   value       = { for k, v in aws_observabilityadmin_centralization_rule_for_organization.observabilityadmin_centralization_rule_for_organizations : k => v.tags if v.tags != null && length(v.tags) > 0 }

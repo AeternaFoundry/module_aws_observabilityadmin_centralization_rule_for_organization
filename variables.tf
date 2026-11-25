@@ -20,6 +20,9 @@ Optional:
                     - encryption_scope (optional)
                     - encryption_strategy (required)
                     - kms_key_arn (optional)
+                - tag_propagation_configuration (optional, block):
+                    - destination_role_arn (required)
+                    - tag_conflict_resolution_strategy (optional)
             - destination_metrics_configuration (optional, block):
                 - backup_configuration (optional, block):
                     - region (required)
@@ -55,6 +58,10 @@ EOT
             encryption_scope                        = optional(string)
             encryption_strategy                     = string
             kms_key_arn                             = optional(string)
+          })))
+          tag_propagation_configuration = optional(list(object({
+            destination_role_arn             = string
+            tag_conflict_resolution_strategy = optional(string)
           })))
         })))
         destination_metrics_configuration = optional(list(object({
